@@ -38,7 +38,7 @@ const DataCards: DataCard[] = [
   {
     id: 3,
     title: "Diving adventure",
-    url: "http://placekitten.com/300/200",
+    url: "https://images.pexels.com/photos/5973832/pexels-photo-5973832.jpeg?cs=srgb&dl=pexels-ono-kosuki-5973832.jpg&fm=jpg",
     heading:
       "It is a long e",
     ratting: 4.7,

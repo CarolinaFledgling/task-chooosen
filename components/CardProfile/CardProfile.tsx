@@ -3,7 +3,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, CardActions } from "@mui/material";
+import { Box, CardActionArea, CardActions, Hidden } from "@mui/material";
+import { bgcolor } from "@mui/system";
 
 interface DataCard {
   id: number;
@@ -28,14 +29,13 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
       <Card
         sx={{
           width: 345,
-          border: "1px solid red",
           padding: 1,
           borderRadius: 2,
         }}
       >
         <CardActionArea
           sx={{
-            border: "1px solid blue",
+            overflow: "hidden",
             borderRadius: 2,
             backgroundImage: `url(${url})`,
             backgroundSize: "cover",
@@ -138,9 +138,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                 )}
               </Box>
             </CardContent>
-            <CardActions>
-              
-            </CardActions>
+            <CardActions></CardActions>
           </Box>
         </CardActionArea>
       </Card>
