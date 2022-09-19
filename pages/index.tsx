@@ -17,12 +17,13 @@ import { Box, fontSize } from "@mui/system";
 
 interface DataCard {
   id: number;
-  name: string;
+  name?: string;
   title: string;
   url: string;
   heading: string;
   ratting: number;
   numberEmission: number;
+  isKilogram: boolean;
 }
 
 type DataCardsArray = DataCard[];
@@ -86,6 +87,7 @@ const Home: NextPage = () => {
                       backgroundRepeat: "no-repeat",
                       width: "100%",
                       height: "100%",
+                      
                     }}
                   >
                     <Box
@@ -93,7 +95,8 @@ const Home: NextPage = () => {
                       sx={{
                         width: "100%",
                         height: "100%",
-                        backgroundColor: "rgba(0,0,255,0.3)",
+                        backgroundColor: "rgba(0,0,255,0.2)",
+                        p:3
                       }}
                     >
                       <CardContent sx={{ p: 2 }}>
@@ -125,6 +128,7 @@ const Home: NextPage = () => {
                         </Box>
                         <Box
                           sx={{
+                            p: 1,
                             mt: 1,
                             mb: 1,
                             backgroundColor: "#333",
@@ -139,26 +143,44 @@ const Home: NextPage = () => {
                             gutterBottom
                             component="h3"
                             sx={{
-                              fontSize: 24,
+                              fontSize: 16,
                               fontWeight: "bold",
                               textAlign: "center",
                               color: "white",
+                              m: 0,
                             }}
                           >
                             {card.title}
                           </Typography>
-                          <Typography
-                            gutterBottom
-                            component="h3"
-                            sx={{
-                              fontSize: 24,
-                              fontWeight: "bold",
-                              textAlign: "center",
-                              color: "white",
-                            }}
-                          >
-                            {card.numberEmission}
-                          </Typography>
+                          {card.isKilogram ? (
+                            <Typography
+                              gutterBottom
+                              component="h3"
+                              sx={{
+                                fontSize: 16,
+                                fontWeight: "bold",
+                                textAlign: "center",
+                                color: "white",
+                                m: 0,
+                              }}
+                            >
+                              {card.numberEmission}kg CO2
+                            </Typography>
+                          ) : (
+                            <Typography
+                              gutterBottom
+                              component="h3"
+                              sx={{
+                                fontSize: 16,
+                                fontWeight: "bold",
+                                textAlign: "center",
+                                color: "white",
+                                m: 0,
+                              }}
+                            >
+                              {card.numberEmission}t CO2
+                            </Typography>
+                          )}
                         </Box>
                       </CardContent>
                     </Box>

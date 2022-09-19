@@ -11,6 +11,7 @@ interface DataCard {
   heading: string,
   ratting: number,
   numberEmission:number,
+  isKilogram:boolean,
 }
 
 
@@ -22,6 +23,7 @@ const DataCards: DataCard[] = [
     heading: "It is a long ",
     ratting: 4.7,
     numberEmission:810,
+    isKilogram:true,
   },
   {
     id: 2,
@@ -30,7 +32,8 @@ const DataCards: DataCard[] = [
     heading:
       "It is a long ",
     ratting: 4.7,
-    numberEmission:810,
+    numberEmission:3.58,
+    isKilogram:false,
   },
   {
     id: 3,
@@ -39,7 +42,8 @@ const DataCards: DataCard[] = [
     heading:
       "It is a long e",
     ratting: 4.7,
-    numberEmission:810,
+    numberEmission:6.92,
+    isKilogram:false,
   },
 
 ];
