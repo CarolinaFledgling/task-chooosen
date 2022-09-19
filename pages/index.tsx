@@ -13,7 +13,7 @@ import {
   Container,
   Stack,
 } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, fontSize } from "@mui/system";
 
 interface DataCard {
   id: number;
@@ -84,17 +84,84 @@ const Home: NextPage = () => {
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
+                      width: "100%",
+                      height: "100%",
                     }}
                   >
-                    <CardMedia />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {card.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {card.name}
-                      </Typography>
-                    </CardContent>
+                    <Box
+                      component="div"
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0,0,255,0.3)",
+                      }}
+                    >
+                      <CardContent sx={{ p: 2 }}>
+                        <Box sx={{ pl: 2, pr: 2 }}>
+                          <Typography
+                            gutterBottom
+                            component="h3"
+                            sx={{
+                              fontSize: 24,
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "white",
+                            }}
+                          >
+                            {card.title}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            component="p"
+                            sx={{
+                              fontSize: 16,
+                              color: "white",
+                              textAlign: "center",
+                            }}
+                          >
+                            {card.heading}
+                          </Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            mt: 1,
+                            mb: 1,
+                            backgroundColor: "#333",
+                            borderRadius: "16px",
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "center",
+                          }}
+                          component="div"
+                        >
+                          <Typography
+                            gutterBottom
+                            component="h3"
+                            sx={{
+                              fontSize: 24,
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "white",
+                            }}
+                          >
+                            {card.title}
+                          </Typography>
+                          <Typography
+                            gutterBottom
+                            component="h3"
+                            sx={{
+                              fontSize: 24,
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "white",
+                            }}
+                          >
+                            {card.numberEmission}
+                          </Typography>
+                        </Box>
+                      </CardContent>
+                    </Box>
                   </CardActionArea>
                   <CardActions></CardActions>
                 </Card>

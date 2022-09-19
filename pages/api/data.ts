@@ -19,7 +19,7 @@ const DataCards: DataCard[] = [
     id: 1,
     title: "Europen Quest",
     url: "http://placekitten.com/300/200",
-    heading: "It is a long established fact that a reader",
+    heading: "It is a long ",
     ratting: 4.7,
     numberEmission:810,
   },
@@ -28,16 +28,16 @@ const DataCards: DataCard[] = [
     title: "Autumn Roadtrip",
     url: "http://placekitten.com/300/200",
     heading:
-      "It is a long established fact that a reader",
+      "It is a long ",
     ratting: 4.7,
     numberEmission:810,
   },
   {
     id: 3,
-    title: "Diving adventure in Egypt",
+    title: "Diving adventure",
     url: "http://placekitten.com/300/200",
     heading:
-      "It is a long established fact that a reader",
+      "It is a long e",
     ratting: 4.7,
     numberEmission:810,
   },
