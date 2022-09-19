@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 
 
-interface DataCards {
+interface DataCard {
   id: number
   name?: string
   title: string,
@@ -14,7 +14,7 @@ interface DataCards {
 }
 
 
-const DataCards: DataCards[] = [
+const DataCards: DataCard[] = [
   {
     id: 1,
     title: "Europen Quest",

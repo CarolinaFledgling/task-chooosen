@@ -1,16 +1,43 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+
+
+interface DataCard {
+  id: number;
+  name: string;
+  title: string;
+  url: string;
+  heading: string;
+  ratting: number;
+  numberEmission: number;
+}
+
+type DataCardsArray = DataCard[];
 
 const Home: NextPage = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DataCardsArray>([]);
+  const [fetchError, setFetchError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetch("/api/data")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("Could not fetch data");
+        }
+        return res.json();
+      })
       .then((data) => {
         setData(data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+        setFetchError(true);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
