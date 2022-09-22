@@ -3,8 +3,17 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, CardActions, Hidden } from "@mui/material";
+import {
+  Box,
+  Button,
+  CardActionArea,
+  CardActions,
+  Hidden,
+  Rating,
+} from "@mui/material";
 import { bgcolor } from "@mui/system";
+import { TonTemplate } from "../TonTemplate/TonTemplate";
+import { KilogramTemplate } from "../KilogramTemplate/KilogramTemplate";
 
 interface DataCard {
   id: number;
@@ -15,6 +24,8 @@ interface DataCard {
   ratting: number;
   numberEmission: number;
   isKilogram: boolean;
+  countriesAmount: number;
+  days: number;
 }
 
 interface CardProfileProps {
@@ -22,7 +33,15 @@ interface CardProfileProps {
 }
 
 function CardProfile({ card }: CardProfileProps): JSX.Element {
-  const { title, url, heading, numberEmission, isKilogram } = card;
+  const {
+    title,
+    url,
+    days,
+    numberEmission,
+    isKilogram,
+    countriesAmount,
+    ratting,
+  } = card;
 
   return (
     <>
@@ -52,9 +71,19 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
               height: "100%",
               backgroundColor: "rgba(0,0,255,0.2)",
               p: 3,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
-            <CardContent sx={{ p: 2 }}>
+            <CardContent
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-around",
+                height: "100%",
+              }}
+            >
               <Box sx={{ pl: 2, pr: 2 }}>
                 <Typography
                   gutterBottom
@@ -68,29 +97,46 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                 >
                   {title}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  component="p"
-                  sx={{
-                    fontSize: 16,
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  {heading}
-                </Typography>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    component="p"
+                    sx={{
+                      fontSize: 16,
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    {countriesAmount === 1
+                      ? `${countriesAmount} country,`
+                      : `${countriesAmount} countries,`}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    component="p"
+                    sx={{
+                      fontSize: 16,
+                      color: "white",
+                      textAlign: "center",
+                    }}
+                  >
+                    {days === 1 ? `${days} day` : `${days} days`}
+                  </Typography>
+                </Box>
               </Box>
               <Box
                 sx={{
                   p: 1,
-                  mt: 1,
+                  mt: 3,
                   mb: 1,
-                  backgroundColor: "#333",
+                  backgroundColor: "#3c4364",
                   borderRadius: "16px",
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
+                  width: "280px",
                 }}
                 component="div"
               >
@@ -98,47 +144,23 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                   gutterBottom
                   component="h3"
                   sx={{
-                    fontSize: 16,
+                    fontSize: 15,
                     fontWeight: "bold",
                     textAlign: "center",
                     color: "white",
                     m: 0,
                   }}
                 >
-                  {card.title}
+                  {title}
                 </Typography>
                 {isKilogram ? (
-                  <Typography
-                    gutterBottom
-                    component="h3"
-                    sx={{
-                      fontSize: 16,
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      color: "white",
-                      m: 0,
-                    }}
-                  >
-                    {numberEmission}kg CO2
-                  </Typography>
+                  <KilogramTemplate numberEmission={numberEmission} />
                 ) : (
-                  <Typography
-                    gutterBottom
-                    component="h3"
-                    sx={{
-                      fontSize: 16,
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      color: "white",
-                      m: 0,
-                    }}
-                  >
-                    {numberEmission}t CO2
-                  </Typography>
+                  <TonTemplate numberEmission={numberEmission} />
                 )}
               </Box>
             </CardContent>
-            <CardActions></CardActions>
+            <Rating name="read-only" value={4.5} readOnly />
           </Box>
         </CardActionArea>
       </Card>

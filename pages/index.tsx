@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Stack,
-} from "@mui/material";
+import { Container, Stack } from "@mui/material";
 import CardProfile from "../components/CardProfile/CardProfile";
 
 interface DataCard {
@@ -16,8 +13,9 @@ interface DataCard {
   ratting: number;
   numberEmission: number;
   isKilogram: boolean;
+  countriesAmount: number;
+  days: number;
 }
-
 
 type DataCardsArray = DataCard[];
 
@@ -26,20 +24,27 @@ const Home: NextPage = () => {
   const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
-    fetch("/api/data")
-      .then((res) => {
-        if (!res.ok) {
-          throw Error("Could not fetch data");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.log("error", err);
-        setFetchError(true);
-      });
+    const getData = () => {
+      fetch("/api/data")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("Could not fetch data");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setData(data);
+        })
+        .catch((err) => {
+          console.log("error", err);
+          setFetchError(true);
+        });
+    }
+    getData();
+
+    setInterval(() => {
+      getData();
+    }, 5000);
   }, []);
 
   return (
@@ -57,6 +62,7 @@ const Home: NextPage = () => {
             display: "flex",
             gap: 2,
             flexWrap: "wrap",
+            justifyContent: "center",
             alignItems: {
               xs: "center",
             },
@@ -72,4 +78,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
