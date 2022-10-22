@@ -16,7 +16,7 @@ export const TonTemplate = ({
         fontSize: 15,
         fontWeight: "bold",
         textAlign: "center",
-        color: "white",
+        color:'#000000eb',
         m: 0,
       }}
     >

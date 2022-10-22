@@ -49,7 +49,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
         <CardActionArea
           sx={{
             overflow: "hidden",
-            borderRadius: 2,
+            borderRadius: 1,
             backgroundImage: `url(${url})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -63,7 +63,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
             sx={{
               width: "100%",
               height: "100%",
-              backgroundColor: "rgba(0,0,255,0.2)",
+              backgroundColor: "#003580ea",
               p: 3,
               display: "flex",
               flexDirection: "column",
@@ -87,6 +87,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                     fontWeight: "bold",
                     textAlign: "center",
                     color: "white",
+                    height:"70px"
                   }}
                 >
                   {title}
@@ -125,12 +126,13 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                   p: 1,
                   mt: 3,
                   mb: 1,
-                  backgroundColor: "#3c4364",
-                  borderRadius: "16px",
+                  backgroundColor: "#fdb713",
+                  borderRadius: 2,
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
                   width: "280px",
+                  
                 }}
                 component="div"
               >
@@ -141,7 +143,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                     fontSize: 15,
                     fontWeight: "bold",
                     textAlign: "center",
-                    color: "white",
+                    color:'#000000eb',
                     m: 0,
                   }}
                 >

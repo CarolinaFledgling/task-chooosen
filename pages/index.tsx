@@ -23,6 +23,7 @@ const Home: NextPage = () => {
   const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
+    
     const getData = () => {
       fetch("/api/data")
         .then((res) => {
