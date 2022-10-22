@@ -32,6 +32,22 @@ Check the link to the [Link ](https://nextjs.org/docs/api-routes/introduction)
 I used Material UI.
 Material-UI is simply a library that allows you to import and use different components to create a user interface in our React applications.
 
+## The readFileSync() method
+
+When you need to read the content of a file using NodeJS, you can use the built-in fs module which contains readFile() and readFileSync() methods.
+
+The **readFileSync()** method will read the content of a file synchronously, so your JavaScript code execution will be stopped until the method is finished.
+
+The **readFileSync()** method accepts two parameters:
+
+- path (mandatory) - which is the relative path to the file you want to read (string type)
+- options(optional) - the encoding format of the file content to read with (string or object type)
+
+The readFileSync() method accepts two parameters:
+```bash
+fs.readFileSync("./data.txt", "utf8");
+```
+
 ## Run Locally
 
 Clone the project
