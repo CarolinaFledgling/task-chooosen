@@ -8,7 +8,7 @@
       "numberEmission":510,
       "isKilogram":true,
       "countriesAmount": 8,
-      "days":11
+      "days":1
     },
     {
         "id": 2,
@@ -30,7 +30,7 @@
         "numberEmission":210,
         "isKilogram":true,
         "countriesAmount": 2,
-        "days":0
+        "days":10
       }
 
   ]

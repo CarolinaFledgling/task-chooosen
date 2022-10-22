@@ -2,17 +2,17 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import {
-  Box,
-  CardActionArea,
-  Rating,
-} from "@mui/material";
+import { Box, CardActionArea, Rating } from "@mui/material";
 import { TonTemplate } from "../TonTemplate/TonTemplate";
 import { KilogramTemplate } from "../KilogramTemplate/KilogramTemplate";
+import { CardTitle } from "../CardTitle/CardTitle";
+import { AmountCountriesText } from "../AmountCountriesText/AmountCountriesText";
+import { AmountDaysText } from "../AmountDaysText/AmountDaysText";
+import { TripsRating } from "../TripsRating/TripsRating";
 
 interface DataCard {
-  id: number;
   title: string;
+  id: number;
   url: string;
   heading: string;
   ratting: number;
@@ -79,46 +79,10 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
               }}
             >
               <Box sx={{ pl: 2, pr: 2 }}>
-                <Typography
-                  gutterBottom
-                  component="h3"
-                  sx={{
-                    fontSize: 24,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    color: "white",
-                    height:"70px"
-                  }}
-                >
-                  {title}
-                </Typography>
+                <CardTitle title={title} />
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    component="p"
-                    sx={{
-                      fontSize: 16,
-                      color: "white",
-                      textAlign: "center",
-                    }}
-                  >
-                    {countriesAmount === 1
-                      ? `${countriesAmount} country,`
-                      : `${countriesAmount} countries,`}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    component="p"
-                    sx={{
-                      fontSize: 16,
-                      color: "white",
-                      textAlign: "center",
-                    }}
-                  >
-                    {days === 1 ? `${days} day` : `${days} days`}
-                  </Typography>
+                  <AmountCountriesText countriesAmount={countriesAmount} />
+                  <AmountDaysText days={days} />
                 </Box>
               </Box>
               <Box
@@ -127,12 +91,11 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                   mt: 3,
                   mb: 1,
                   backgroundColor: "#fdb713",
-                  borderRadius: 2,
+                  borderRadius: 1,
                   display: "flex",
                   justifyContent: "space-around",
                   alignItems: "center",
                   width: "280px",
-                  
                 }}
                 component="div"
               >
@@ -143,7 +106,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                     fontSize: 15,
                     fontWeight: "bold",
                     textAlign: "center",
-                    color:'#000000eb',
+                    color: "#000000eb",
                     m: 0,
                   }}
                 >
@@ -156,7 +119,7 @@ function CardProfile({ card }: CardProfileProps): JSX.Element {
                 )}
               </Box>
             </CardContent>
-            <Rating name="read-only" value={4.5} readOnly />
+            <TripsRating ratting={ratting} />
           </Box>
         </CardActionArea>
       </Card>
