@@ -1,23 +1,17 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import {
   Box,
-  Button,
   CardActionArea,
-  CardActions,
-  Hidden,
   Rating,
 } from "@mui/material";
-import { bgcolor } from "@mui/system";
 import { TonTemplate } from "../TonTemplate/TonTemplate";
 import { KilogramTemplate } from "../KilogramTemplate/KilogramTemplate";
 
 interface DataCard {
   id: number;
-  name: string;
   title: string;
   url: string;
   heading: string;
