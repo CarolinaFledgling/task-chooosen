@@ -1,7 +1,8 @@
-## The task is to create a page with the following layout using React 
+## The task is to create a page with the following layout using React and Typescript
 
 
-![Group 1](https://user-images.githubusercontent.com/47687566/197345935-708cf4bb-577d-4ff8-baba-5a5338a42443.png)
+![image 1](https://user-images.githubusercontent.com/47687566/197349057-821deffb-05e2-4056-a53a-e387b50eb716.png)
+
 
 ## Requirements:
 
